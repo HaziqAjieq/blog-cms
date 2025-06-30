@@ -1,0 +1,76 @@
+1.Laravel Eloquent: A Powerful ORM for PHP (Object relational mapping)
+-Eloquent is laravel built in ORM that makes to working with databases .
+-Eloquent makes managing and working with database relationships easy,and supports a variety of common re;ationships
+
+What is Eloquent?
+
+-Eloquent provides an active record implementation,meaning each database table ha a corresponding 'Model' that used to interact with that table Models allow you to query and manipulate data without writing raw SQL.
+
+#Defining relationship
+-Eloquent relationships are defined as methods on your eloquent model classes.Since relationships also serve as powerful query builders,defining relationships.For example,we may chain additional query constraints on this 'posts' relationship:
+
+
+    $user->posts()->('active', 1)->get();
+
+1.Model Definition - Explained
+
+    namesapce App\Models;
+
+    use Illuminate\Database\Eloquent\Model;
+
+    class User extends Model
+    {
+      /**
+        *The table associated with the model.
+        *By default,eloquent assume the table name is the plural form
+        *of the model name (e.g , 'User' -> 'users')
+        */
+
+        protected $table = 'users';
+
+        /**
+        *THe primary key for the model.
+        *Default is 'id'/ Change if your table uses a different primary key.
+        */
+
+        protected $primaryKey = 'id';
+
+        /**
+        *Indicates if the model should be timestamped.
+        *ELoquent expexts created_at and updated_at columns by default.
+        *Set to false if your table doesnt have these columns.
+
+        public $timestamped = true ;
+
+        /**
+        *The attributes that are mass assignable.
+        *This is a security features to prevent mass assignment vulnerabilities.
+        */
+        
+        protected $fillable = ['name' , 'email' , 'password'];
+
+        /**
+        *The attributes that should be hidden for arrays or JSON output.
+        *Useful for hiding sensitive data like password.
+        */
+
+        protected $hiddedn = ['password' , 'remember_token']; 
+
+        /**
+        *The attributes that should be cast to native types.
+        *For example,casting a JSON string to a PHP array/
+        */
+
+        protected $casts =[
+          'email_verified_at' => 'datetime',
+            'preferences' => 'array'
+        ]
+
+    }
+
+  *Tinker*
+
+  Tinker allows you to interact with your entire Laravel application on the command line, including your Eloquent models, jobs, events, and more. To enter the Tinker environment, run the tinker Artisan command:
+  can also alter data using model that created to fill the database
+
+  Model

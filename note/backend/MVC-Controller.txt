@@ -1,0 +1,105 @@
+What is MVC?
+  -Model - handles data and business logic (Post,User,Tag)
+  -View - handles what the user sees(HTML,BLade,React);
+  -Controller - handles incoming request and sends the correct data to views or ationships
+
+in Laravel:
+
+  -Model live in app/Models
+  -Controller live in app/Https/Controllers
+  -Views usually llive in resources/view(Blade) or are separated if using React.
+
+What is laravel Controller?
+
+  A controller is a PHP class that handles request (from browser,frontend apps,API client).
+
+Example:
+
+    Route::get('/posts',[PostController::class, 'index']);
+
+    that tells laravel:
+      when someone visits /post, use the index() method from PostController.
+
+
+
+How Laravel works with React (as a Frontend)
+if im using REact as the frontend (instead of Blade views), here's how things connect
+
+layer:
+  1.Model
+    -Laravel role
+      -Eloquent model(e.g Post)
+
+    -React role
+      -Fetch data via API
+
+  2.Controller
+    -Laravel role 
+      -Accepts request from react,retusn JSON
+
+    -React role
+      -Send fetch/axios request to Laravel
+
+  3.View
+    -Laravel role
+      -	❌ Blade not used(inthis case)
+    
+    -React role
+      -React handles all UI rendering
+
+
+Example React-to-laravel
+
+1.React sends a request:
+
+  fetch('/api/posts')
+    .then(res => res.json())
+    .then(data => console.log(data));
+
+2.Laravel Controller respondsL
+
+  public function index()
+  {
+    return Post::all(); //returns JSON automatically
+  }
+
+3.React display the data in a component.
+
+Commond Controller Methods (CURD)
+
+Methods:
+  1.Index()
+   - GET/posts
+    List all posts
+
+  2.Store()
+    - POST/posts
+    Create a post
+  
+  3.show()
+    - GET/posts/{id}
+    Show one post
+
+  4.update()
+    - PUT/posts/{id}
+    Update post
+
+  5.destroy()
+    - Delete/posts/{id}
+    Delete post
+
+React will call these endpoints using fetch() or axios.
+
+Summary Notes
+
+-Laravel controller = logic center for HTTP request.
+-It handles validation,databse access, and returns JSON (for React).
+-React replaces the BLade view - it consumes Laravel's API responses.
+-Together they form a decoupled MVC
+
+  M: Laravel Model
+
+  C: Laravel Controller
+
+  V: React frontend
+
