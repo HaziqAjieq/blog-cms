@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User;
+use App\Models\User
+
 
 class Post extends Model
 {
+     //create dummy post with factories
+    use HasFactory;
     protected $fillable =[
         'title' ,
         'slug',
@@ -50,5 +54,5 @@ class Post extends Model
     public function media(){
         return $this->hasMany(Media::class);
     }
-    //create dummy post with factories
+   
 }

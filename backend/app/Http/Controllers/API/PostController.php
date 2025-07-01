@@ -13,7 +13,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts =  Post::with(['category', 'tags' ,'user'])
+        ->where('status' , 'published')
+        ->latest()
+        ->paginate(10);
+        
+        // rerturn json data
+        return response()->json($posts);
     }
 
     /**
@@ -29,6 +35,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        return response()->json($post->load(['category' ,'tags' ,'user']));
         //
     }
 
