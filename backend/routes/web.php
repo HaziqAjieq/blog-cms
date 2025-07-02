@@ -11,8 +11,8 @@ Route::get('/', function () {
 
 
 // public routes
-Route::get('/posts', [PostController::class,'index']);
+Route::get(uri: '/posts',action: [PostController::class,'index']);
 
-Route::get('/posts/{post}', [PostController::class , 'show']);
+Route::get(uri: '/posts/{post}', action: [PostController::class , 'show']);
 
 // auth route for user to create/edit/delete post

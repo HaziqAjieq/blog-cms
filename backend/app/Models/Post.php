@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User
+use App\Models\User;
+use App\Models\Tag;
+use App\Models\Category;
 
 
 class Post extends Model
@@ -26,10 +28,11 @@ class Post extends Model
     ];
 
     // Automatically cast fields to proper types
-    protected $cast =[
+    protected $casts =[
+        'meta_data' => 'array',
         'published_at' => 'datetime',
         'views_count' => 'integer',
-        'meta_data' => 'array',
+        
     ];
 
     // get to a user (author for the post)
