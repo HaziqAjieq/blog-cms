@@ -13,11 +13,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts =  Post::with(['category', 'tags' ,'user'])
-        ->where('status' , 'published')
-        ->latest()
-        ->paginate(10);
-        
+        $posts =  Post::with(['category', 'tags', 'user'])
+            ->where('status', 'published')
+            ->latest()
+            ->paginate(10);
+
         // rerturn json data
         return response()->json($posts);
     }
@@ -36,7 +36,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         // 
-        return response()->json($post->load(['category' ,'tags' ,'user']));
+        return response()->json($post->load(['category', 'tags', 'user']));
         //
     }
 
@@ -45,6 +45,43 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $validated = $request->validate([
+            'title' => 'sometimes|string|max:255',
+            'slug' => 'sometimes|string|max:255|unique:posts,slug,' . $post->id,
+            'excerpt' => 'sometimes|string',
+            'content' => 'sometimes|string',
+            'featured_image' => 'sometimes|string',
+            'status' => 'sometimes|string',
+            'published_at' => 'sometimes|date',
+            'category_id' => 'sometimes|exists:categories,id',
+            'tags' => 'sometimes|array',
+            'tags.*' => 'exists:tags,id',
+        ]);
+        try {
+            // update the post with new data
+            $post->update($validated);
+
+            //sync tags if provided
+
+            if ($request->has('tags')) {
+                $post->tags()->sync($request->tags);
+            }
+
+            // return json response
+            return response()->json([
+                'success' => true,
+                'message' => 'Updated',
+                'data' => $post->load(['user', 'category', 'tags']),
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to update post',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
+
         //
     }
 

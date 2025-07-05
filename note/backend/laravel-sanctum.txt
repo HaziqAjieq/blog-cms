@@ -1,0 +1,4 @@
+Laravel vs token authentication
+
+Sanctum:
+Laravel sanctum provides a simple way to authenticate single-page applicaitons (SPA),mobile applications, and issue a API tokens.
