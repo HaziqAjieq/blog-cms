@@ -1,0 +1,11 @@
+Purpose:Reusable logic container:
+-A hook folder is a common convention for organizing cutoms react hooks.
+
+1.Centralized location for reusbale logic:
+  -It provides a Dedicated place to store custom hooks that encapsulate reusable stateful logic or side effects.This promotes code reusability across different components in your application.
+
+2.Imrpoved readability and maintainabilityL
+  -By separating custom hooks into their own folder, the project structure becomes clearer and easier to navigate.This makes it simpler to find,understands, and maintain your custom hooks.
+
+3.Encapsulaiton of concenrsS:
+  -Custom hooks allow you to abdstract complex logic away from your components,making your components cleaner and more focued on rendering UI.The hooks folder helps to reinforce this separation of concerns.

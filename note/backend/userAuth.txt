@@ -1,0 +1,33 @@
+Laravel SAnctum Authentication Summary
+
+1.User Authentication Flow.
+  a.login
+    -Validata credential (email/username + password).
+    -Chech againts hashed passwrod in DB using Hash::check().
+    -Generate token with createToken('token_name')(auto hased).
+    -Return token to frontend for session persistence.
+
+  b.logout.
+    -Revoke tokens with auth()->user()->token()->delete().
+    -Or revoke only current token: $request->user()->currentAccessToken()->delete().
+
+2.Security Practices.
+
+  a.Password handling.
+    -Always hash password (Hash::make() on registration).
+    -Never store/retrun plaintext password.
+
+  b.Token management.
+    -Tokens auto-expire bsed on sanctum.php config.
+    -Revoke tokens immediately on logout.
+
+  c.Validation.
+    -Validate all incoming request.
+    -Use Middleware (auth:sanctum) for protected routes.
+
+Takeways:
+1.Sanctum provides simple token-based auth for SPAs.
+2.Always hash passwords and validate request.
+3.Tokens should be revoked when no longer needed.
+4.Frontend stores tokens securely(httpOnly cookies or localstorage).
+5.Deployment can be flexible (separare or combined domains.)

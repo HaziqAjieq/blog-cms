@@ -1,0 +1,11 @@
+Purpose:Full route components:
+  Example:
+
+    pages/
+    ├── public/          🌐 Visitor pages  
+    │   ├── HomePage.jsx       🎮 Featured games carousel  
+    │   └── GamePage.jsx       🕹️ Full game details  
+    │
+    └── admin/           🔐 CMS pages  
+        ├── Dashboard.jsx       📊 Stats overview  
+        └── ReviewApproval.jsx  ✅ Moderate user reviews

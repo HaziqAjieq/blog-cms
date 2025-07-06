@@ -1,0 +1,37 @@
+purpose for this folder is a folder or module serve as a designated location for storing small,reusabel helper functions and common code that can be used across various components and modules.
+
+Purpose and benefits:
+1.Code Reusability:
+  -utility functions encapsulate common logic,preventing code duplication and promoting a DRY(dont repe4at yoursels approach.)
+
+2.Modularity and organization:
+  -Grouping related helper functions in a dediacted 'utils' locations improves code organization and makes it easier to find and manage shared functionalities.
+
+3.Readability and maintainability:
+  -By extracting complex or repeatitive logic into separate utility funcitons,components become cleaner,more focused, and easier to understand and maintain.
+
+4.Testability:
+  -Pure utility functions,which dont rely on external state or side effects,are inherently easier to test in isolation.
+
+
+  💡 When to Create a New Utility
+        DRY Principle: When you use the same logic in 3+ places
+
+        Complex Logic: Code that's hard to read inline
+
+        External Dependencies: Isolate libraries like date-fns
+
+        Project-Specific Rules: Like your rating system
+
+
+                          *Breakpoint*
+
+
+for this project utils folder
+
+1.Auth helpers
+2.API helpers
+3.Data formatters
+4.Validation helpers
+5.custom hooks
+6.SEO utils

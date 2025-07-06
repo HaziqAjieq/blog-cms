@@ -1,0 +1,18 @@
+Pupose:Reusable UI building blocks.
+
+Example for this project:
+
+components/
+├── ui/               # Atomic components
+│   ├── RatingStars.jsx      ★★★★★ game ratings  
+│   └── PlatformTag.jsx      🎮 PS5/Xbox/Switch badges
+│
+├── cards/            # Data containers  
+│   ├── GameReviewCard.jsx   🎯 Review summary  
+│   └ NewsCard.jsx          📰 Compact news item
+│
+└── layout/           # Structural  
+    ├── Sidebar.jsx          🧭 Category navigation  
+    └── GameDetailHeader.jsx 🖼️ Hero image with title
+
+    

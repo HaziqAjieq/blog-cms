@@ -90,6 +90,7 @@ class AuthController extends Controller
             ]
         ], 201);
     }
+    
     //owner only get all users
     public function index(){
         return response()->json([

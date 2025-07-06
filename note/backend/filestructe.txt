@@ -1,0 +1,48 @@
+
+app/
+├── Http/
+│   ├── Controllers/
+│   │   ├── API/
+│   │   │   ├── PostController.php
+│   │   │   └── AuthController.php
+│   │   │
+│   │   └── Web/             # Optional for any web views
+│   │
+│   └── Resources/
+│       ├── PostResource.php  # API JSON formatting
+│       └── CategoryResource.php
+│
+├── Models/
+│   ├── Post.php
+│   ├── Category.php
+│   └── Media.php
+│
+├── Policies/                # Authorization policies
+│   └── PostPolicy.php
+│
+└── Providers/
+    └── AppServiceProvider.php
+
+routes/
+├── api.php                  # API endpoints
+└── web.php                  # Optional web routes
+
+config/
+├── sanctum.php              # Sanctum config
+└── permission.php           # Spatie permissions
+
+database/
+├── migrations/              # Database schema
+├── seeders/                 # Test data
+└── factories/               # Model factories
+
+public/
+└── uploads/                 # User-uploaded media
+
+
+2.Backend:
+  -API-Focused:COntrollers return JSON responses.
+  -Policies:Enforce role-based access controll.
+  -Media handling:Dedicated uploads/ directory.
+
+  
