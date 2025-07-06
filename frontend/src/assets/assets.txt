@@ -16,4 +16,4 @@ Social media icon
 -facebook
 -tiktok
 -youtube
--
+-discord

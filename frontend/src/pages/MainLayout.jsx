@@ -5,9 +5,10 @@ import Footer from "../components/Footer";
 
 export default function MainLayout() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-950 text-gray-100">
+    <div className="flex flex-col min-h-screen w-screen    ">
       {/* header goes here */}
-      <Header/>
+      
+      <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
         <Outlet /> {/* This renders the current page content */}
       </main>

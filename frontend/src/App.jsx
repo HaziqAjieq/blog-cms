@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+
 import MainLayout from "./pages/MainLayout";
 import HomePage from "./pages/public/HomePage";
+
 
 function App() {
   return (
