@@ -15,4 +15,9 @@ components/
     ├── Sidebar.jsx          🧭 Category navigation  
     └── GameDetailHeader.jsx 🖼️ Hero image with title
 
-    
+Cmponent file:
+-Header
+-Footer
+-Navbar
+-Sidebar
+-affiliate component

@@ -1,0 +1,19 @@
+Purpose:Storing image/video/logo/icon for web use.
+
+-Create a basic logo that can be used for multiple Platform
+-and icon for the categories
+
+probably used icon:-
+-pc icon
+-ps5
+-Xbox
+-Switch
+-Mobile
+-Competetive icon
+
+Social media icon
+-x 
+-facebook
+-tiktok
+-youtube
+-
