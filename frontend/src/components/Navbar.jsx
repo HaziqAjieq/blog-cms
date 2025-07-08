@@ -71,7 +71,7 @@ export default function Navbar() {
             <nav className="hidden md:flex text-white font-bold  flex-row items-center justify-around gap-6 md:pb-6">
               <Link 
               to={{
-                pathname:'/home'
+                pathname:'/'
               }}>Home</Link>
 
               <Link 

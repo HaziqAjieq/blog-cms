@@ -24,7 +24,7 @@ class Post extends Model
         'views_count',
         'meta_data',
         'user_id',
-        'category_id',
+        
     ];
 
     // Automatically cast fields to proper types
@@ -44,7 +44,7 @@ class Post extends Model
 
     // Post belong to a category
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     // Tags for post

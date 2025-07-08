@@ -17,7 +17,14 @@ components/
 
 Cmponent file:
 -Header
+    -headerimg
+    -
+
+    
 -Footer
 -Navbar
--Sidebar
+    -hamburger
+    -Platform
+    -Search
+-Sidebar(will think of this latter)
 -affiliate component

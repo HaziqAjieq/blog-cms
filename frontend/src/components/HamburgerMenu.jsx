@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
- 
   return (
     <div className="md:hidden z-50 flex  justify-center ">
       {/* Hamburger Button */}
@@ -37,17 +36,17 @@ export default function HamburgerMenu() {
         <Searchbar />
 
         <Link
-        onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
-            pathname: "/home",
+            pathname: "/",
           }}
         >
           Home
         </Link>
 
         <Link
-        onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
             pathname: "/news",
@@ -57,7 +56,7 @@ export default function HamburgerMenu() {
         </Link>
 
         <Link
-        onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
             pathname: "/about",
@@ -67,7 +66,7 @@ export default function HamburgerMenu() {
         </Link>
 
         <Link
-        onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
             pathname: "/platform",

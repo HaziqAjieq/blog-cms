@@ -13,7 +13,7 @@ function App() {
       {/* inser mainlayout */}
       <Route element={<MainLayout/>}>
         {/* add other routes includ path in tags*/}
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<News />} />
         <Route path="/about" element={<About />} />
         {/* will routing through platform id */}
