@@ -2,7 +2,8 @@ import { useState } from "react";
 import BlogCard from "../../components/BlogCard";
 import { examplePost } from "../../contexts/ExamplePost";
 import { useNavigate } from "react-router-dom";
-
+import CardPlatform from "../../components/CardPlatform";
+import { examplePlatforms } from "../../contexts/PlatformContext";
 // post grid limit on homepage
 
 const PostsGrid = ({ posts }) => {
@@ -24,7 +25,7 @@ const PostsGrid = ({ posts }) => {
  
   return (
     <>
-      <div className="py-10 grid grid-rows gap-4 grid-cols-2 lg:grid-cols-3 ">
+      <div className="py-10 grid grid-rows gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
         {sortedPosts.slice(0, limit).map((post) => (
           <div key={post.id}>
             <BlogCard  post={post} />
@@ -50,19 +51,31 @@ const PostsGrid = ({ posts }) => {
 const HomePage = () => {
   return (
     <div>
-      <div className=" ">
+      <div className="homepage-news">
         <h1 className="border-b-2 border-b-black text-xl md:text-2xl lg:text-3xl font-semibold">
           NEWS
         </h1>
         {/* card component goes here */}
         <PostsGrid posts={examplePost} />
       </div>
-      {/* categories card goes here */}
+      {/* platform card goes here */}
 
-      <div>
+      <div className="homepage-platform">
         <h1 className="border-b-2 border-b-black text-xl md:text-2xl lg:text-3xl font-semibold">
           PLATFORM
         </h1>
+        {/* platform image card goes here */}
+
+         <div className="py-10 grid grid-rows gap-4 sm:grid-cols-3 lg:grid-cols-4  ">
+          {examplePlatforms.map((platform)=> (
+            <div>
+            <CardPlatform platform={platform} key={platform.id}/>
+          </div>
+          ))}
+          
+      
+      </div>
+        
       </div>
 
       {/* others affiliate carousell card component*/}
