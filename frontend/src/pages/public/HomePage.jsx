@@ -66,7 +66,7 @@ const HomePage = () => {
         </h1>
         {/* platform image card goes here */}
 
-         <div className="py-10 grid grid-rows gap-4 sm:grid-cols-3 lg:grid-cols-4  ">
+         <div className="py-10 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  ">
           {examplePlatforms.map((platform)=> (
             <div>
             <CardPlatform platform={platform} key={platform.id}/>

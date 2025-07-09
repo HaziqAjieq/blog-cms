@@ -2,3 +2,5 @@ Purpose: GLobal state management;
 
 -Refers to the practice of cenralizing and managing data that needs to be accesible across multiple components.whitin an application.Unlike local state,which is confined to a single component,global state can be accessed and modified by caroius components
 
+for an REST API-
+https://docs.gamescorekeeper.com/#rest_api_list_competitions
