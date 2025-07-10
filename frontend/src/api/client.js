@@ -7,6 +7,4 @@ export const apiClient = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Consolidated API functions
-export const fetchPosts = () => apiClient.get('/posts');
-export const getPost = (id) => apiClient.get(`/posts/${id}`);
+

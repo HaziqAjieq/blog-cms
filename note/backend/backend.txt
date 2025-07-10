@@ -1,0 +1,96 @@
+backend/
+├── config/
+│   ├── database.js        # Database connection configuration
+│   └── env.js            # Environment variables validation
+│
+├── controllers/
+│   ├── authController.js  # Authentication logic
+│   ├── postController.js  # Blog post operations
+│   ├── userController.js  # User management
+│   └── commentController.js # Comment handling
+│
+├── middleware/
+│   ├── authMiddleware.js  # Authentication middleware
+│   ├── errorMiddleware.js # Error handling
+│   └── validationMiddleware.js # Request validation
+│
+├── models/
+│   ├── User.js           # User model/schema
+│   ├── Post.js           # Post model/schema
+│   └── Comment.js        # Comment model/schema
+│
+├── routes/
+│   ├── authRoutes.js     # Authentication routes
+│   ├── postRoutes.js     # Blog post routes
+│   ├── userRoutes.js     # User routes
+│   └── index.js         # Main router combining all routes
+│
+├── services/
+│   ├── authService.js    # Authentication business logic
+│   ├── postService.js    # Post business logic
+│   └── emailService.js   # Email notifications
+│
+├── utils/
+│   ├── logger.js         # Logging utility
+│   ├── upload.js         # File upload handling
+│   └── helpers.js        # Utility functions
+│
+├── public/               # Static files
+│   └── uploads/          # Uploaded images/files
+│
+├── .env                  # Environment variables
+├── .gitignore
+├── package.json
+└── server.js             # Main application entry point
+
+2. Essential API Endpoints
+Authentication:
+POST /api/auth/register - User registration
+
+POST /api/auth/login - User login
+
+GET /api/auth/me - Get current user profile
+
+Posts:
+GET /api/posts - Get all published posts
+
+GET /api/posts/:slug - Get single post by slug
+
+POST /api/posts - Create new post (protected)
+
+PUT /api/posts/:id - Update post (protected)
+
+DELETE /api/posts/:id - Delete post (protected)
+
+Users:
+GET /api/users - Get all users (admin only)
+
+GET /api/users/:id - Get user profile
+
+PUT /api/users/:id - Update user (protected)
+
+4. Recommended Packages
+"dependencies": {
+  "express": "^4.18.2",
+  "mysql2": "^3.6.0",
+  "dotenv": "^16.3.1",
+  "jsonwebtoken": "^9.0.2",
+  "bcryptjs": "^2.4.3",
+  "cors": "^2.8.5",
+  "multer": "^1.4.5-lts.1",
+  "express-validator": "^7.0.1",
+  "knex": "^2.5.1"          // For migrations (optional)
+}
+
+ Required Middleware
+Authentication (JWT verification)
+
+Authorization (role-based access control)
+
+Request validation
+
+Error handling
+
+Rate limiting (for public APIs)
+
+command promt :mysql -u root -p 

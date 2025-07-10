@@ -1,0 +1,38 @@
+npm install @faker-js/faker
+
+
+// seeders/fakeDataGenerator.js
+import { faker } from '@faker-js/faker';
+import { pool } from '../config/database.js';
+
+export async function generateFakeData() {
+  // Create 5 fake users
+  const userIds = [];
+  for (let i = 0; i < 5; i++) {
+    const [result] = await pool.query(
+      'INSERT INTO users SET ?',
+      {
+        username: faker.internet.userName(),
+        email: faker.internet.email(),
+        password_hash: faker.internet.password(),
+        avatar: faker.image.avatar(),
+        created_at: faker.date.past()
+      }
+    );
+    userIds.push(result.insertId);
+  }
+
+  // Create 20 fake posts
+  for (let i = 0; i < 20; i++) {
+    await pool.query(
+      'INSERT INTO posts SET ?',
+      {
+        title: faker.lorem.sentence(),
+        content: faker.lorem.paragraphs(3),
+        author_id: faker.helpers.arrayElement(userIds),
+        status: faker.helpers.arrayElement(['draft', 'published', 'archived']),
+        created_at: faker.date.recent()
+      }
+    );
+  }
+}
