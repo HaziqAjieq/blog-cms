@@ -1,54 +1,16 @@
 import { useState } from "react";
 import BlogCard from "../../components/BlogCard";
 import { examplePost } from "../../contexts/ExamplePost";
-import { useNavigate } from "react-router-dom";
 import CardPlatform from "../../components/CardPlatform";
-import { examplePlatforms } from "../../contexts/PlatformContext";
-// post grid limit on homepage
-
-const PostsGrid = ({ posts }) => {
-  const [limit] = useState(6); //Initial number of post to show
- 
-  const navigate = useNavigate();
-
-  // sorted posts by date (newest first)
-  const sortedPosts = [...posts].sort((a, b) => 
-   {const dateA = new Date(a.published_at);
-    const dateB = new Date(b.published_at);
-    return dateB - dateA; // Newest first 
-   }
-  );
-
-  const handleClick = () =>{
-    navigate('/news')
-  }
- 
-  return (
-    <>
-      <div className="py-10 grid grid-rows gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
-        {sortedPosts.slice(0, limit).map((post) => (
-          <div key={post.id}>
-            <BlogCard  post={post} />
-          </div>
-        ))}
-      </div>
-      {/* view more button */}
-      {posts.length > limit && (
-        <div className="py-4 flex justify-end">
-          <button
-            onClick={handleClick}
-            className="text-white bg-black px-3 py-2 rounded-xl"
-          >
-            View More
-          </button>
-        </div>
-      )
-        }
-    </>
-  );
-};
+import {AllPlatform} from "../../contexts/ExamplePost";
+import { filterEsportPosts, getLatestPosts } from "../../utils/postFilters";
+import NewsCard from "../../components/NewsCard";
 
 const HomePage = () => {
+  const esportCardPost = getLatestPosts(filterEsportPosts(examplePost));
+
+  const [limit] = useState(6);
+
   return (
     <div>
       <div className="homepage-news">
@@ -56,7 +18,7 @@ const HomePage = () => {
           NEWS
         </h1>
         {/* card component goes here */}
-        <PostsGrid posts={examplePost} />
+        <NewsCard posts={examplePost} />
       </div>
       {/* platform card goes here */}
 
@@ -66,20 +28,29 @@ const HomePage = () => {
         </h1>
         {/* platform image card goes here */}
 
-         <div className="py-10 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  ">
-          {examplePlatforms.map((platform)=> (
-            <div>
-            <CardPlatform platform={platform} key={platform.id}/>
-          </div>
-          ))}
-          
-      
-      </div>
-        
+        <div className="py-10 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  ">
+          {AllPlatform.map((platform) => (
+            <CardPlatform key={platform.id} platform={platform}/>
+          ))};
+        </div>
       </div>
 
       {/* others affiliate carousell card component*/}
       <div></div>
+      {/* Esport card */}
+      <div className="Esport-Platform">
+        <h1 className="border-b-2 border-b-black text-xl md:text-2xl lg:text-3xl font-semibold">
+          E-SPORT
+        </h1>
+        {/* esport.card component goes here */}
+        <div className="py-10 grid grid-rows gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
+          {esportCardPost.slice(0, limit).map((post) => (
+            <div key={`esport-${post.id}`}>
+              <BlogCard post={post} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

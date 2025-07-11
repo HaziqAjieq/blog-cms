@@ -17,7 +17,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/about" element={<About />} />
         {/* will routing through platform id */}
-        <Route path="/platform" element={<Platform />} />
+        <Route path={`/:slug`} element={<Platform />} />
       </Route>
 
     </Routes>

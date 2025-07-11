@@ -1,12 +1,12 @@
-import React from 'react';
-
+import { AllPlatform } from "../contexts/ExamplePost";
 export default function CardPlatform({ platform }) {
+  
   return (
     <div 
   key={platform.id}
   className="relative max-w-sm h-48 rounded-lg overflow-hidden cursor-pointer" // Set fixed height and rounded corners
   style={{ 
-    backgroundImage: `url(${platform.icon})`,
+    backgroundImage: `url(${platform.image})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

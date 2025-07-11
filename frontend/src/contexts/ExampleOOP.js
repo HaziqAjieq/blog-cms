@@ -47,7 +47,7 @@ export class BlogPost extends BaseEntity {
     featured_image = null, 
     published_at,
     user,
-    paltforms = [],
+    platforms = [],
     tags =[],
     status,
     
@@ -60,7 +60,7 @@ export class BlogPost extends BaseEntity {
     this.featured_image = featured_image;
     this.published_at = published_at;
     this.user = user;
-    this.platforms = paltforms;
+    this.platforms = platforms;
     this.tags = tags;
     this.status = status || Boolean;
     
