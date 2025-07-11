@@ -20,16 +20,16 @@ const tehbeng = new User(3, "Tehbeng");
 // create platform object
 
 
-export const ps5Platform = new Platform(1, "PS5", "playstation-5", ps5);
- export const xboxPlatform = new Platform(2, "XBOX", "xbox", xbox);
-export const nintendoPlatform = new Platform(
+const ps5Platform = new Platform(1, "PS5", "playstation-5", ps5);
+const xboxPlatform = new Platform(2, "XBOX", "xbox", xbox);
+const nintendoPlatform = new Platform(
   3,
   "NINTENDO SWITCH",
   "nintendo-switch",
   nintendo
 );
-export const pcPlatform = new Platform(4, "PC", "pc", pc);
-export const mobilePlatform = new Platform(5, "MOBILE", "mobile", mobile);
+const pcPlatform = new Platform(4, "PC", "pc", pc);
+const mobilePlatform = new Platform(5, "MOBILE", "mobile", mobile);
 
 export const AllPlatform = [
   ps5Platform,

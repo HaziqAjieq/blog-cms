@@ -3,7 +3,7 @@ import { examplePost } from "../../contexts/ExamplePost";
 import BlogCard from "../../components/BlogCard";
 import { getLatestPosts } from "../../utils/postFilters";
 
-import { usePagination } from '../../utils/pagination'
+import { usePagination } from '../../hooks/pagination'
 
 
 export default function News() {
@@ -23,11 +23,16 @@ export default function News() {
       {/* card component goes here */}
       <div className="py-10 grid grid-rows gap-4 sm:grid-cols-2 lg:grid-cols-2 ">
       {currentItems.map((post)=> (
-          <div key={post.id}>
+          <div>
         <BlogCard post={post}/>
          </div>
+         
       )) 
       }
+
+      {/*  */}
+
+      
      </div>
 
       {/* pagination control button */}

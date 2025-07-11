@@ -1,7 +1,4 @@
-
-import { examplePost } from '../contexts/ExamplePost';
-
-
+import { examplePost } from "../contexts/ExamplePost";
 
 export default function BlogCard({ post = examplePost }) {
   const formattedDate = new Date(post.published_at).toLocaleDateString(
@@ -17,16 +14,36 @@ export default function BlogCard({ post = examplePost }) {
     <div className={` bg-white w-full  rounded-lg flex flex-col`}>
       {/* featuresImage */}
 
-      <a href="#" className="flex items-center justify-center w-full  overflow-hidden">
-        <img className="object-cover max-h-60 w-full" src={post.featured_image} alt={post.title} />
+      <a
+        href="#"
+        className="flex items-center justify-center w-full  overflow-hidden"
+      >
+        <img
+          className="object-cover max-h-60 w-full"
+          src={post.featured_image}
+          alt={post.title}
+        />
       </a>
 
       <div className="px-3 py-7">
         {/* getting categories  */}
+        <div className="flex justify-between">
+          <time className="text-gray-600" dateTime={post.published_at}>
+            {formattedDate}
+          </time>
+          <div className="flex gap-2">
 
-        <time className="text-gray-600" dateTime={post.published_at}>
-          {formattedDate}
-        </time>
+            {post.platform?.map(platform => (
+              <span
+              key={platform.id}
+              className="text-gray-600">
+              {platform.name}
+            </span>
+            ))  
+            }
+            </div>
+        </div>
+
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
             {post.title}
@@ -60,6 +77,3 @@ export default function BlogCard({ post = examplePost }) {
 }
 
 // purpose if just for the card
-
-
-
