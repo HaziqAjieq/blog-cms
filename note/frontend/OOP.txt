@@ -1,0 +1,6 @@
+Key concept of OOP :-
+1. Objects: Collection of key-value pairs (properties and methods).
+2.Classes :Syntactic sugar ove JAvascript prototype system.
+3.Encapsulation:Bundling data wihtmethods that operate onthat data.
+4.Inheritance: Creating new classes based on exixting ones.
+5,Polymorphism: Abitilt\y to call the same method on different object.

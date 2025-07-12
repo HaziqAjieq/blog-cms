@@ -4,11 +4,12 @@ import { examplePost } from "../../contexts/ExamplePost";
 import CardPlatform from "../../components/CardPlatform";
 import {AllPlatform} from "../../contexts/ExamplePost";
 import { filterEsportPosts, getLatestPosts } from "../../utils/postFilters";
+import { getFilterPlatform } from "../../utils/platformFilters";
 import NewsCard from "../../components/NewsCard";
 
 const HomePage = () => {
   const esportCardPost = getLatestPosts(filterEsportPosts(examplePost));
-
+  
   const [limit] = useState(6);
 
   return (
@@ -29,8 +30,8 @@ const HomePage = () => {
         {/* platform image card goes here */}
 
         <div className="py-10 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  ">
-          {AllPlatform.map((platform) => (
-            <CardPlatform key={platform.id} platform={platform}/>
+          {AllPlatform.map(platform => (
+            <CardPlatform key={platform.id} platform={platform} />
           ))};
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { examplePost } from "../contexts/ExamplePost";
+import { Link } from "react-router-dom";
 
 export default function BlogCard({ post = examplePost }) {
   const formattedDate = new Date(post.published_at).toLocaleDateString(
@@ -10,12 +11,12 @@ export default function BlogCard({ post = examplePost }) {
     }
   );
 
+  
   return (
     <div className={` bg-white w-full  rounded-lg flex flex-col`}>
       {/* featuresImage */}
 
       <a
-        href="#"
         className="flex items-center justify-center w-full  overflow-hidden"
       >
         <img
@@ -28,15 +29,15 @@ export default function BlogCard({ post = examplePost }) {
       <div className="px-3 py-7">
         {/* getting categories  */}
         <div className="flex justify-between">
-          <time className="text-gray-600" dateTime={post.published_at}>
+          <time className="text-gray-600 text-sm" dateTime={post.published_at}>
             {formattedDate}
           </time>
           <div className="flex gap-2">
 
-            {post.platform?.map(platform => (
+            {post.platforms?.map(platform => (
               <span
-              key={platform.id}
-              className="text-gray-600">
+              key={`platform-${platform.id}`}
+              className="text-gray-600 text-sm">
               {platform.name}
             </span>
             ))  
@@ -50,8 +51,10 @@ export default function BlogCard({ post = examplePost }) {
           </h5>
         </a>
         <p className="mb-3 text-black line-clamp-2 text-lg ">{post.excerpt} </p>
+        {/* read more link */}
+        <Link to={`/posts/${post.slug}`}>
         <a
-          href="#"
+          
           className=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-800 rounded-lg"
         >
           Read more
@@ -71,6 +74,7 @@ export default function BlogCard({ post = examplePost }) {
             />
           </svg>
         </a>
+        </Link>
       </div>
     </div>
   );

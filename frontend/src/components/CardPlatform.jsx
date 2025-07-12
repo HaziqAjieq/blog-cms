@@ -1,5 +1,15 @@
 import { AllPlatform } from "../contexts/ExamplePost";
-export default function CardPlatform({ platform }) {
+import { useNavigate } from "react-router-dom";
+
+
+export default function CardPlatform({platform}) {
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/platform/${platform.slug}` ,{
+      state: {platform}
+    })
+  }
   
   return (
     <div 
@@ -12,6 +22,7 @@ export default function CardPlatform({ platform }) {
     backgroundRepeat: 'no-repeat',
     
   }}
+  onClick={handleClick}
 >
   {/* Gradient overlay for better text visibility */}
   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent hover:bg-black/30 transition-all duration-300"></div>

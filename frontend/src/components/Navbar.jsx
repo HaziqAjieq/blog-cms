@@ -86,7 +86,7 @@ export default function Navbar() {
                 {/* probably another component idk */}
                <Link 
               to={{
-                pathname:'/platform'
+                pathname:'/platform/:slug'
               }}>Platform</Link>
             </nav>
         

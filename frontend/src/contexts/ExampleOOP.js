@@ -55,7 +55,7 @@ export class BlogPost extends BaseEntity {
     super(id);
     this.title = title ;
     this.slug = slug;
-    this.excerpt = excerpt || this.createExcerpt(content); //auto generate
+    this.excerpt = excerpt || this.createExcerpt(content); 
     this.content = content; 
     this.featured_image = featured_image;
     this.published_at = published_at;

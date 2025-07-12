@@ -5,6 +5,7 @@ import HomePage from "./pages/public/HomePage";
 import About from "./pages/public/About";
 import News from "./pages/public/News";
 import Platform from "./pages/public/Platform";
+import PostDetail from "./pages/public/PostDetail";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/about" element={<About />} />
         {/* will routing through platform id */}
-        <Route path={`/:slug`} element={<Platform />} />
+       <Route path="/posts/:slug" element={<PostDetail/>}/>
+        <Route path={`/platform/:platformId`} element={<Platform/>}/>
       </Route>
 
     </Routes>
