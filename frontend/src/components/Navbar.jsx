@@ -76,7 +76,7 @@ export default function Navbar() {
 
               <Link 
               to={{
-                pathname:'/news'
+                pathname:'/news/:slug'
               }}>News</Link>
 
                <Link 

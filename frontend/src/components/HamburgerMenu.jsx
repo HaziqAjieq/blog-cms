@@ -49,7 +49,7 @@ export default function HamburgerMenu() {
           onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
-            pathname: "/news",
+            pathname: "/news/:slug",
           }}
         >
           News
@@ -69,7 +69,7 @@ export default function HamburgerMenu() {
           onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
-            pathname: "/platform",
+            pathname: "/platform/:slug",
           }}
         >
           Platform

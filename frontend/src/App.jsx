@@ -15,7 +15,8 @@ function App() {
       <Route element={<MainLayout/>}>
         {/* add other routes includ path in tags*/}
         <Route path="/" element={<HomePage />} />
-        <Route path="/news" element={<News />} />
+        
+        <Route path="/news/:slug" element={<News />} />
         <Route path="/about" element={<About />} />
         {/* will routing through platform id */}
        <Route path="/posts/:slug" element={<PostDetail/>}/>
