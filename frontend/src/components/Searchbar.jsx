@@ -1,14 +1,26 @@
 import React from 'react'
+import { useState } from 'react'
+import { useNavigate , useLocation } from 'react-router-dom';
 
-export default function Searchbar() {
+export default function Searchbar({ Posts}) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchInput , setSearchInput] = useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault() ;
+    navigate(`/news/:slug?search=${encodeURIComponent(searchInput)}`);
+  }
+
   return (
-    <div className=" w-full z-0  ">
+    <form  onSubmit={handleSearch} className=" w-full z-0  ">
           <label
             
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
           >
             Search
           </label>
+          
           <div className="relative  ">
             <div className="absolute z-0 inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
@@ -32,6 +44,8 @@ export default function Searchbar() {
               id="search"
               className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               required
             />
             <button
@@ -41,6 +55,6 @@ export default function Searchbar() {
               Search
             </button>
           </div>
-        </div>
+        </form>
   )
 }

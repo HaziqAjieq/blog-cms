@@ -55,6 +55,16 @@ export default function HamburgerMenu() {
           News
         </Link>
 
+          <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          to={{
+            pathname: "/news/esport",
+          }}
+        >
+          E-Sport
+        </Link>
+
         <Link
           onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"

@@ -1,7 +1,7 @@
 import { examplePost } from "../contexts/ExamplePost";
 import { Link } from "react-router-dom";
 
-export default function BlogCard({ post = examplePost }) {
+export default function BlogCard({ post = examplePost , searchTerm }) {
   const formattedDate = new Date(post.published_at).toLocaleDateString(
     "en-US",
     {
@@ -10,6 +10,14 @@ export default function BlogCard({ post = examplePost }) {
       day: "numeric",
     }
   );
+
+  const highlightMatch = (text) => {
+      if (!searchTerm || !text) return text;
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    return text.split(regex).map((part, i) =>
+      i % 2 === 1 ? <mark key={i}>{part}</mark> : part
+  );
+  }
 
   return (
     <div
@@ -21,7 +29,7 @@ export default function BlogCard({ post = examplePost }) {
         <img
           className="object-cover max-h-60 w-full"
           src={post.featured_image}
-          alt={post.title}
+          alt={highlightMatch(post.title)}
         />
       </div>
 
@@ -37,7 +45,7 @@ export default function BlogCard({ post = examplePost }) {
                 key={`platform-${platform.id}`}
                 className="text-gray-600 text-sm"
               >
-                {platform.name}
+                {highlightMatch(platform.name)}
               </span>
             ))}
           </div>
@@ -45,13 +53,15 @@ export default function BlogCard({ post = examplePost }) {
 
         
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
-            {post.title}
+             {highlightMatch(post.title)}
           </h5>
       
-        <p className="mb-3 text-black line-clamp-2 text-lg ">{post.excerpt} </p>
+        <p className="mb-3 text-black line-clamp-2 text-lg "> 
+          {highlightMatch(post.excerpt)} 
+          </p>
         {/* read more link */}
         <Link to={`/posts/${post.slug}`}>
-          <button className=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-800 rounded-lg">
+          <button className=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-800 rounded-lg hover:cursor-pointer hover:bg-green-950 transition-all duration-300">
             Read more
             <svg
               className="rtl:rotate-180 w-3.5 h-3.5 ms-2"

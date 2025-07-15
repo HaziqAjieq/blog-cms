@@ -8,12 +8,12 @@ export default function NewsCard({ posts }) {
   const [limit] = useState(6); //Initial number of post to show
 
   const navigate = useNavigate();
-
   // sorted posts by date (newest first)
 
   const handleClick = (links) => {
     navigate(`/${links}`);
   };
+  
   const latestNews = getLatestPosts(examplePost);
   return (
     <>
@@ -28,7 +28,7 @@ export default function NewsCard({ posts }) {
       {posts.length > limit && (
         <div className="py-4 flex justify-end">
           <button
-            onClick={() => handleClick("news")}
+            onClick={() => handleClick("news/:slug")}
             className="text-white bg-black px-3 py-2 rounded-xl"
           >
             View More

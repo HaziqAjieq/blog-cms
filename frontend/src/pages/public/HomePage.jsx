@@ -4,8 +4,8 @@ import { examplePost } from "../../contexts/ExamplePost";
 import CardPlatform from "../../components/CardPlatform";
 import {AllPlatform} from "../../contexts/ExamplePost";
 import { filterEsportPosts, getLatestPosts } from "../../utils/postFilters";
-import { getFilterPlatform } from "../../utils/platformFilters";
 import NewsCard from "../../components/NewsCard";
+
 
 const HomePage = () => {
   const esportCardPost = getLatestPosts(filterEsportPosts(examplePost));
@@ -14,7 +14,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="homepage-news">
+      <div className="homepage-news ">
         <h1 className="border-b-2 border-b-black text-xl md:text-2xl lg:text-3xl font-semibold">
           NEWS
         </h1>
