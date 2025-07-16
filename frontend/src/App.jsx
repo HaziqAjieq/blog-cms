@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, Navigate} from "react-router-dom";
 
 import MainLayout from "./pages/MainLayout";
 import HomePage from "./pages/public/HomePage";
@@ -6,6 +6,16 @@ import About from "./pages/public/About";
 import News from "./pages/public/News";
 import Platform from "./pages/public/Platform";
 import PostDetail from "./pages/public/PostDetail";
+import LoginPage from "./pages/public/authPage/LoginPage";
+import PostForm from "./pages/public/authPage/PostForm";
+
+const PrivateRoutes = () => {
+  let auth = {'token' : true}
+
+  return(
+    auth.token ? <Outlet/> : <Navigate to='/login'/>
+  )
+}
 
 function App() {
   return (
@@ -21,6 +31,13 @@ function App() {
         {/* will routing through platform id */}
        <Route path="/posts/:slug" element={<PostDetail/>}/>
         <Route path={`/platform/:platformId`} element={<Platform/>}/>
+       
+       {/* user Route */}
+        <Route path={`/login`} element={<LoginPage/>}/>
+         {/* Protected Routes */}
+          <Route element={<PrivateRoutes/>}>
+            <Route path='/postform' element={<PostForm/>}/>
+          </Route>
       </Route>
 
     </Routes>

@@ -31,7 +31,7 @@ export default function News() {
       })
     : getLatestPosts(filterEsport); 
 
-  const processedPosts = getLatestPosts(filterEsport);
+
 
 
   const {

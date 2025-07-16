@@ -8,6 +8,7 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -67,7 +68,13 @@ export default function Footer() {
             </a>
           </li>
         </ul>
-        <p className="text-gray-500 ">Copyright © MH.</p>
+
+      <Link to={{
+        pathname:'/login'
+      }}>
+      <p className="text-gray-500 ">Copyright © MH.</p>
+      </Link>
+        
       </div>
       
     </footer>

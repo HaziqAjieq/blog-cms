@@ -1,6 +1,6 @@
 import mysql from 'mysql2';
-import dotenv from 'dotenv';
-dotenv.config()
+import 'dotenv/config'
+
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -14,5 +14,4 @@ const result = await pool.query('SELECT * FROM persons');
 console.log(result)
 
 export default { pool };
-
 
