@@ -23,6 +23,12 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
+        set(value) {
+          // hash pasword automatically
+          const hash = bcrypt.hashSync(value, 10);
+          this.setDataValue('password' , hash)
+
+        }
       },
       email: {
         type: DataTypes.STRING,
@@ -56,6 +62,10 @@ module.exports = (sequelize, DataTypes) => {
       },
     }
   );
+
+  User.prototype.comparePassword = async function(password) {
+    return await bcrypt.compare(password , this.password);
+  }
 
   return User;
 };
