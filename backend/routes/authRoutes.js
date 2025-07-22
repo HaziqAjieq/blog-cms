@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const  authController  = require('../controllers/authController');
+
 const { authenticate, adminOnly } = require('../middleware/authMiddleware');
 
 
@@ -9,16 +10,16 @@ const { authenticate, adminOnly } = require('../middleware/authMiddleware');
 // @access  Public
 router.post('/login', authController.login);
 
+router.post('/logout', authController.logout);
+
 // @route   POST /api/auth/register
 // @desc    Register a new user (admin only)
 // @access  Private/Admin
 router.post('/register', authenticate, adminOnly, authController.register);
 
+router.delete('/users/:id', authenticate, adminOnly, authController.deleteUser);
 
-// @route   POST /api/auth/create-admin
-// @desc    Create another admin (admin only)
-// @access  Private/Admin
-router.post('/create-admin', authenticate, adminOnly, authController.createAdmin);
+
 
 
 

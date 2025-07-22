@@ -1,0 +1,56 @@
+1.Setup
+
+const db = require("../models");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const config = require("../config/config");
+const User = db.User;
+
+2. Core Functions
+A. User Registration (Admin-Only)
+// Admin creates admin
+exports.createAdmin = (req, res) => registerUser(req, res, 'admin', 'admin');
+
+// Admin creates regular user 
+exports.register = (req, res) => registerUser(req, res, 'admin');
+
+// Shared logic
+const registerUser = async (req, res, requiredRole, fixedRole) => {
+  // 1. Check admin privileges
+  // 2. Validate duplicate email/username
+  // 3. Hash password
+  // 4. Create user with role:
+  //    - fixedRole if specified
+  //    - req.body.role if admin
+  //    - 'user' by default
+  // Returns 201 with user data
+};
+
+B. Login
+exports.login = async (req, res) => {
+  // 1. Find user by username
+  // 2. Compare hashed passwords
+  // 3. Issue JWT containing:
+  //    - user.id
+  //    - user.role (critical for authorization)
+  // Returns 200 with token + role
+};
+
+C. Logout
+(Cookie-based)
+exports.login = async (req, res) => {
+  // 1. Find user by username
+  // 2. Compare hashed passwords
+  // 3. Issue JWT containing:
+  //    - user.id
+  //    - user.role (critical for authorization)
+  // Returns 200 with token + role
+};
+
+D. Delete User (Admin-Only)
+exports.deleteUser = async (req, res) => {
+  // 1. Verify admin role
+  // 2. Prevent self-deletion
+  // 3. Hard-delete user
+  // Returns 200 on success
+};

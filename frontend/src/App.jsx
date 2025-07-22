@@ -15,6 +15,19 @@ import PostDetail from "./pages/public/PostDetail";
 import LoginPage from "./pages/public/authPage/LoginPage";
 import PostForm from "./pages/public/authPage/PostForm";
 
+import { useAuth } from "./hooks/useAuth";
+
+function ProtectedRoute({ children }) {
+  const { user, isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    return user?.token ? <Outlet /> : <Navigate to="/login" replace />;
+  }
+
+  return children;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -32,10 +45,13 @@ function App() {
 
           {/* user Route */}
           <Route path={`/login`} element={<LoginPage />} />
-        </Route>
-        {/* Protected Routes */}
 
-        <Route path="/postform" element={<PostForm />} />
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+
+            <Route path={"/postform"} element={<PostForm />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
