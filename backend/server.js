@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./models');
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes')
 
 const bodyParser = require('body-parser');
 
@@ -34,6 +35,11 @@ app.get('/', (req, res) => {
 
 // login route
 app.use('/api/auth', authRoutes);
+
+
+// user route here slash with id for individual user
+app.use('/api', userRoutes);
+
 
 // Sync database and start server
 db.sequelize.authenticate()

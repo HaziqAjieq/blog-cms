@@ -13,7 +13,7 @@ import News from "./pages/public/News";
 import Platform from "./pages/public/Platform";
 import PostDetail from "./pages/public/PostDetail";
 import LoginPage from "./pages/public/authPage/LoginPage";
-import PostForm from "./pages/public/authPage/PostForm";
+import UserManagement from "./pages/public/authPage/UserManagement";
 
 import { useAuth } from "./hooks/useAuth";
 
@@ -49,7 +49,7 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
 
-            <Route path={"/postform"} element={<PostForm />} />
+            <Route path={"/user-management"} element={<UserManagement />} />
           </Route>
         </Route>
       </Routes>

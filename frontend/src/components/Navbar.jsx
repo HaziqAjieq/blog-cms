@@ -12,13 +12,12 @@ import HamburgerMenu from "./HamburgerMenu";
 import { Link } from "react-router-dom";
 import useAuthState from "../hooks/useAuthState";
 import { useAuth } from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
-import { User } from "../contexts/ExampleOOP";
+
 
 export default function Navbar() {
   const isUser = useAuthState();
  
-  const { logout , user } = useAuth();
+  const { logout } = useAuth();
   return (
     <div className="flex flex-col md:flex-row  bg-black lg:px-8 pt-6 gap-5 md:gap-0 md:pt-10 justify-evenly z-50 ">
       {/* social media and search bar goes here */}
@@ -121,6 +120,20 @@ export default function Navbar() {
             >
               Platform
             </Link>
+
+            <Link
+             to={{
+                pathname: "/user-management",
+              }}
+            >
+              Users
+            </Link>
+
+             <Link>
+              Post
+            </Link>
+
+            {/* dashboard if possible */}
           </nav>
         ) : (
           <nav className="hidden md:flex  text-white font-bold  flex-row items-center justify-around gap-6 md:pb-6 w-[100%]">
@@ -163,6 +176,8 @@ export default function Navbar() {
             >
               Platform
             </Link>
+
+           
           </nav>
         )}
       </div>
@@ -174,9 +189,9 @@ export default function Navbar() {
           <div className="hidden md:flex flex-col justify-between md:basis-80 ">
             <Searchbar />
 
-            <div>
+            <div className="flex  justify-center mb-10">
             
-              <button onClick={logout} className="text-white m">
+              <button onClick={logout} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-800 rounded-lg hover:cursor-pointer hover:bg-green-950 transition-all duration-300">
                 Logout
               </button>
             </div>

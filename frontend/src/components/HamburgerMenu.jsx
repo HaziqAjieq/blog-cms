@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Searchbar from "./Searchbar";
 import { Link } from "react-router-dom";
+import useAuthState from "../hooks/useAuthState";
+import { useAuth } from "../hooks/useAuth";
+
 
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
+   const isUser = useAuthState();
+  const { logout } = useAuth();
   return (
     <div className="md:hidden z-50 flex  justify-center ">
       {/* Hamburger Button */}
@@ -34,8 +39,9 @@ export default function HamburgerMenu() {
       `}
       >
         <Searchbar />
-
-        <Link
+      {isUser? (
+        <>
+         <Link
           onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
           to={{
@@ -84,6 +90,84 @@ export default function HamburgerMenu() {
         >
           Platform
         </Link>
+        <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+           to={{
+            pathname: "/user-management",
+           }}
+        >
+          users
+        </Link>
+        <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          // to={{
+          //   pathname: "/platform/:slug",
+          // }}
+        >
+          Post
+        </Link>
+            <div className="mt-7 w-full">
+                 
+              <button onClick={logout} className="inline-flex items-center px-10 py-2 text-sm font-medium text-center text-white bg-green-800 rounded-lg hover:cursor-pointer hover:bg-green-950 transition-all duration-300">
+                Logout
+              </button>
+            </div>
+        </>) 
+      :
+      (
+      <> 
+      <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          to={{
+            pathname: "/",
+          }}
+        >
+          Home
+        </Link>
+
+        <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          to={{
+            pathname: "/news/:slug",
+          }}
+        >
+          News
+        </Link>
+
+          <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          to={{
+            pathname: "/news/esport",
+          }}
+        >
+          E-Sport
+        </Link>
+
+        <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          to={{
+            pathname: "/about",
+          }}
+        >
+          About
+        </Link>
+
+        <Link
+          onClick={() => setIsOpen(!isOpen)}
+          className="block px-4 py-3 hover:bg-black hover:text-white"
+          to={{
+            pathname: "/platform/:slug",
+          }}
+        >
+          Platform
+        </Link></>)}
+       
       </div>
     </div>
   );

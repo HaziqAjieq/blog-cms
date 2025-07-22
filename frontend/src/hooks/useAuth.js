@@ -26,7 +26,7 @@ export function useAuth() {
       const userData = await login(username, password);
       setUser(userData);
       notifyAuthChange() 
-      navigate("/postform"); // Redirect after successful login
+      navigate("/"); // Redirect after successful login
       return userData;
     } catch (err) {
      console.error('Login failed:', error);
