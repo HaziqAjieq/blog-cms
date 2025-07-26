@@ -19,5 +19,7 @@ export const register = (userData) => {
 };
 
 export const deleteUser = (userId) => {
-  return api.delete(`/auth/users/${userId}`);
+  return api.delete(`/auth/users/delete/${userId}`);
 };
+
+

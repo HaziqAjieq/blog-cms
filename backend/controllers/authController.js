@@ -19,7 +19,7 @@ const registerUser = async (req, res, requiredRole, userRole) => {
 
     // Check if user exists
     const existingUser = await User.findOne({ 
-      where: { [db.Sequelize.Op.or]: [{ email }, { username }] }
+      where: { [db.Sequelize.Op.or]: [{ email }, { username }]}
   });
     if (existingUser) {
       return res.status(400).json({ 
@@ -35,7 +35,7 @@ const registerUser = async (req, res, requiredRole, userRole) => {
       username,
       email,
       password: hashedPassword,
-      role: userRole || (req.user.role === 'admin' ? role : 'user')
+      role: userRole || (req.user.role === 'admin' ? role : 'editor')
     });
 
     return res.status(201).json({

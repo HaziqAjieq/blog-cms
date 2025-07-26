@@ -17,8 +17,9 @@ router.post('/logout', authController.logout);
 // @access  Private/Admin
 router.post('/register', authenticate, adminOnly, authController.register);
 
-router.delete('/users/:id', authenticate, adminOnly, authController.deleteUser);
+router.delete('/users/delete/:id', authenticate, adminOnly, authController.deleteUser);
 
+// get all user data
 
 
 
