@@ -3,7 +3,7 @@ import api from "../../services/api/axios";
 import { deleteUser } from "../../services/auth";
 import { useState } from "react";
 
-export const UserRow = ({ user, onEditClick, onDeleteSuccess }) => {
+export const UserRow = ({ user, onDeleteSuccess }) => {
   const [error, setError] = useState(null);
 
   const handleDelete = async () => {
@@ -62,12 +62,7 @@ export const UserRow = ({ user, onEditClick, onDeleteSuccess }) => {
       </td>
       <td className="px-6 py-4 flex flex-col gap-3">
         <div className="flex gap-3 md:gap-8">
-          <button
-            onClick={onEditClick} // Add onClick handler
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            Edit user
-          </button>
+      
           <button
             onClick={handleDelete} // Add onClick handler for delete
             className="font-medium text-red-600 dark:text-red-500 hover:underline"

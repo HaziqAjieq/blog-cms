@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 
 import { SearchBar } from "../../../components/userTableComponent/SearchBar";
 import { UserRow } from "../../../components/userTableComponent/UserRow";
-import { EditUserModal } from "../../../components/userTableComponent/EditUserModal";
+
 import api from "../../../services/api/axios";
 import AddUser from "../../../components/userTableComponent/AddUser";
 
-export default function UserManagement({addUserClick}) {
+export default function UserManagement() {
   // components/UserTable/UserTable.jsx
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -91,11 +91,7 @@ export default function UserManagement({addUserClick}) {
         
       </div>
 
-      <EditUserModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        user={selectedUser}
-      />
+      
     </div>
   );
 }

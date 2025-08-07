@@ -129,7 +129,11 @@ export default function Navbar() {
               Users
             </Link>
 
-             <Link>
+             <Link
+              to={{
+                pathname:'/post-list'
+              }}
+             >
               Post
             </Link>
 

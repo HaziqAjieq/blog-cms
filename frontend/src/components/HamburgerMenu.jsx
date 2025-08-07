@@ -102,9 +102,10 @@ export default function HamburgerMenu() {
         <Link
           onClick={() => setIsOpen(!isOpen)}
           className="block px-4 py-3 hover:bg-black hover:text-white"
-          // to={{
-          //   pathname: "/platform/:slug",
-          // }}
+          to={{
+                pathname:'/post-list'
+              }}
+             
         >
           Post
         </Link>

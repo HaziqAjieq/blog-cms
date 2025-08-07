@@ -14,6 +14,12 @@ import Platform from "./pages/public/Platform";
 import PostDetail from "./pages/public/PostDetail";
 import LoginPage from "./pages/public/authPage/LoginPage";
 import UserManagement from "./pages/public/authPage/UserManagement";
+import PostList from "./pages/public/postPage/PostList";
+
+// for post
+import PostLayout from "./pages/public/postPage/PostLayout";
+import PostEditor from "./pages/public/postPage/PostEditor";
+import TagsPlatform from './pages/public/postPage/TagsPlatform'
 
 import { useAuth } from "./hooks/useAuth";
 
@@ -50,6 +56,15 @@ function App() {
           <Route element={<ProtectedRoute />}>
 
             <Route path={"/user-management"} element={<UserManagement />} />
+            {/* post navbar for covering the all post page */}
+              <Route element={<PostLayout/>}>
+                <Route path={`/post-list`} element={<PostList />} />
+
+                <Route path={`/post-editor`} element={<PostEditor />} />
+                <Route path={`/post-tags-platform`} element={<TagsPlatform />} />
+
+              </Route>
+
           </Route>
         </Route>
       </Routes>
